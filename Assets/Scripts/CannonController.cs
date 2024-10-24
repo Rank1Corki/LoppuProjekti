@@ -6,7 +6,7 @@ public class CannonController : MonoBehaviour
     public Transform shootPoint;          // Transform at the tip of the barrel where projectiles will spawn
     public LineRenderer lineRenderer;
     public float projectileSpeed = 10f;   // Speed of the cannonball (used for trajectory prediction)
-    public float maxAngle = 45f;          // Maximum upward angle for the cannon
+    public float maxAngle = 60f;          // Maximum upward angle for the cannon
     public int trajectorySteps = 30;      // Number of steps in the line prediction
     public GameObject cannonballPrefab;   // Prefab of the cannonball
     public float gravityScale = 1f;       // Scale factor for gravity
@@ -48,9 +48,13 @@ public class CannonController : MonoBehaviour
         // Clamp the angle to ensure it only moves between 0 and the max angle (45 degrees)
         angle = Mathf.Clamp(angle, 0, maxAngle);
 
-        // Set the barrel's rotation based on the clamped angle
-        barrel.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        // Create a target rotation based on the clamped angle
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        // Smoothly rotate the barrel towards the target rotation
+        barrel.rotation = Quaternion.Slerp(barrel.rotation, targetRotation, Time.deltaTime * 5f); // Adjust the smoothing factor (5f) as needed
     }
+
 
     private void DrawTrajectory()
     {
