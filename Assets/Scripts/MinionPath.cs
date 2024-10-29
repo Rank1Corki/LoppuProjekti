@@ -1,25 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MinionPath : MonoBehaviour
 {
-    [SerializeField] GameObject pointToGo;
-
+    [SerializeField] Transform destonation;
+    NavMeshAgent agent;
 
     void Start()
     {
-        
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        RaycastHit2D hit;
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
-        {
-            hit = Physics2D.Raycast(gameObject.transform.position, pointToGo.transform.position);
-        }
-        
+        agent.SetDestination(destonation.position);
     }
 }
