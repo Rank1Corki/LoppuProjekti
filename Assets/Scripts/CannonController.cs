@@ -2,92 +2,110 @@ using UnityEngine;
 
 public class CannonController : MonoBehaviour
 {
-    public Transform barrel;              // Reference to the barrel transform
-    public Transform shootPoint;          // Transform at the tip of the barrel where projectiles will spawn
+    public Transform barrel;
+    public Transform shootPoint;
     public LineRenderer lineRenderer;
-    public float projectileSpeed = 10f;   // Speed of the cannonball (used for trajectory prediction)
-    public float maxAngle = 60f;          // Maximum upward angle for the cannon
-    public int trajectorySteps = 30;      // Number of steps in the line prediction
-    public GameObject cannonballPrefab;   // Prefab of the cannonball
-    public float gravityScale = 1f;       // Scale factor for gravity
+    public float projectileSpeed = 10f;
+    public float maxAngle = 45f;
+    public int trajectorySteps = 30;
+    public GameObject[] cannonballPrefabs; // Array to store different cannonball prefabs
+    public float gravityScale = 1f;
+    public int ammoCount = 5;
+
+    private int selectedCannonballType = -1; // Start with an invalid type
+    private ObjectSelector1 objectSelector;
+
+    private void Start()
+    {
+        objectSelector = GetComponent<ObjectSelector1>();
+    }
 
     private void Update()
     {
-        RotateBarrelTowardsMouse();
-
-        // Draw the line only when the shoot button is held down
-        if (Input.GetMouseButton(0))
+        if (objectSelector != null && objectSelector.IsSelected() && selectedCannonballType != -1)
         {
-            DrawTrajectory();
-            lineRenderer.enabled = true;
+            RotateBarrelTowardsMouse();
+
+            if (Input.GetMouseButton(0))
+            {
+                DrawTrajectory();
+                lineRenderer.enabled = true;
+            }
+            else
+            {
+                lineRenderer.enabled = false;
+            }
+
+            if (Input.GetMouseButtonUp(0) && ammoCount > 0)
+            {
+                ShootCannonball();
+                ammoCount--;
+
+                if (ammoCount == 0)
+                {
+                    // Optional: You can decide whether to deselect or keep the cannon selected.
+                    // objectSelector.Deselect(); // Uncomment if you want to deselect after ammo runs out
+                }
+            }
+        }
+    }
+
+    public void SetCannonballType(int type)
+    {
+        if (type >= 0 && type < cannonballPrefabs.Length)
+        {
+            selectedCannonballType = type; // Update the selected type
+            Debug.Log("Cannonball Type Set: " + type);
         }
         else
         {
-            lineRenderer.enabled = false;
-        }
-
-        // Shoot when the shoot button is released
-        if (Input.GetMouseButtonUp(0))
-        {
-            ShootCannonball();
+            Debug.LogWarning("Invalid cannonball type selected.");
         }
     }
 
     private void RotateBarrelTowardsMouse()
     {
-        // Get mouse position in world space
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0f; // Ensure the Z position is zero for 2D
+        mousePosition.z = 0f;
 
-        // Calculate the direction from the barrel to the mouse position
         Vector2 direction = (mousePosition - barrel.position).normalized;
-
-        // Calculate the angle between the barrel's right vector and the direction to the mouse
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // Clamp the angle to ensure it only moves between 0 and the max angle (45 degrees)
         angle = Mathf.Clamp(angle, 0, maxAngle);
 
-        // Create a target rotation based on the clamped angle
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
-        // Smoothly rotate the barrel towards the target rotation
-        barrel.rotation = Quaternion.Slerp(barrel.rotation, targetRotation, Time.deltaTime * 5f); // Adjust the smoothing factor (5f) as needed
+        barrel.rotation = Quaternion.Slerp(barrel.rotation, targetRotation, Time.deltaTime * 5f);
     }
-
 
     private void DrawTrajectory()
     {
-        // Get the starting position and direction
+        lineRenderer.startColor = Color.white;
+        lineRenderer.endColor = Color.white;
+
         Vector2 startPoint = shootPoint.position;
         Vector2 initialVelocity = shootPoint.right * projectileSpeed;
 
         lineRenderer.positionCount = trajectorySteps;
         for (int i = 0; i < trajectorySteps; i++)
         {
-            // Time increment for each step based on the number of steps and line length
-            float time = i * 0.1f; // Adjust time step to control line smoothness
-
-            // Calculate the position at each step using physics equations (accounting for gravity)
+            float time = i * 0.1f;
             Vector2 position = startPoint + initialVelocity * time + 0.5f * Physics2D.gravity * gravityScale * time * time;
             lineRenderer.SetPosition(i, position);
         }
 
-        // Optionally: Adjust LineRenderer width for a smaller line
         lineRenderer.startWidth = 0.05f;
         lineRenderer.endWidth = 0.05f;
     }
 
     private void ShootCannonball()
     {
-        // Instantiate a cannonball at the shootPoint and set its direction
+        // Use the selected cannonball prefab
+        GameObject cannonballPrefab = cannonballPrefabs[selectedCannonballType];
+
         GameObject cannonball = Instantiate(cannonballPrefab, shootPoint.position, shootPoint.rotation);
         Rigidbody2D rb = cannonball.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
             rb.velocity = shootPoint.right * projectileSpeed;
-
-            // Apply the gravity scale to the cannonball's Rigidbody2D component
             rb.gravityScale = gravityScale;
         }
     }
