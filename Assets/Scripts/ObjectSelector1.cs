@@ -52,12 +52,15 @@ public class ObjectSelector1 : MonoBehaviour
 
     private void SelectObject()
     {
-        isSelected = false;
-
-        SetColor(Color.green); // Change color to indicate selection
-        if (cannonballSelectionUI != null)
+        if (!isSelected)
         {
-            cannonballSelectionUI.SetActive(true); // Show selection UI
+            isSelected = false;
+
+            SetColor(Color.green); // Change color to indicate selection
+            if (cannonballSelectionUI != null)
+            {
+                cannonballSelectionUI.SetActive(true); // Show selection UI
+            }
         }
     }
 

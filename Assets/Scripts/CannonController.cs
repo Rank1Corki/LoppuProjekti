@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class CannonController : MonoBehaviour
 {
@@ -11,8 +12,10 @@ public class CannonController : MonoBehaviour
     public GameObject[] cannonballPrefabs; // Array to store different cannonball prefabs
     public float gravityScale = 1f;
     public int ammoCount = 5;
+    public float shootCooldown = 1f; // Cooldown duration between each shot
 
     private int selectedCannonballType = -1; // Start with an invalid type
+    private bool canShoot = false; // Flag to indicate if the cannon is ready to fire
     private ObjectSelector1 objectSelector;
 
     private void Start()
@@ -22,7 +25,7 @@ public class CannonController : MonoBehaviour
 
     private void Update()
     {
-        if (objectSelector != null && objectSelector.IsSelected() && selectedCannonballType != -1)
+        if (objectSelector != null && objectSelector.IsSelected() && selectedCannonballType != -1 && canShoot)
         {
             RotateBarrelTowardsMouse();
 
@@ -43,8 +46,7 @@ public class CannonController : MonoBehaviour
 
                 if (ammoCount == 0)
                 {
-                    // Optional: You can decide whether to deselect or keep the cannon selected.
-                    // objectSelector.Deselect(); // Uncomment if you want to deselect after ammo runs out
+                    objectSelector.Deselect();
                 }
             }
         }
@@ -56,11 +58,22 @@ public class CannonController : MonoBehaviour
         {
             selectedCannonballType = type; // Update the selected type
             Debug.Log("Cannonball Type Set: " + type);
+            ammoCount += 5;
+            StartCoroutine(ActivateShootingAfterDelay(1f)); // Start the coroutine with a 1-second delay
         }
         else
         {
             Debug.LogWarning("Invalid cannonball type selected.");
         }
+    }
+
+    private IEnumerator ActivateShootingAfterDelay(float delay)
+    {
+        canShoot = false; // Set canShoot to false initially
+        Debug.Log("Cannon is in use and cannot shoot yet.");
+        yield return new WaitForSeconds(delay); // Wait for the specified delay
+        canShoot = true; // Allow shooting after the delay
+        Debug.Log("Cannon is now ready to shoot.");
     }
 
     private void RotateBarrelTowardsMouse()
@@ -98,6 +111,12 @@ public class CannonController : MonoBehaviour
 
     private void ShootCannonball()
     {
+        if (!canShoot) return; // Prevent shooting if canShoot is false
+
+        // Set canShoot to false immediately to prevent shooting again until cooldown is over
+        canShoot = false;
+        StartCoroutine(ShootingCooldown());
+
         // Use the selected cannonball prefab
         GameObject cannonballPrefab = cannonballPrefabs[selectedCannonballType];
 
@@ -108,5 +127,11 @@ public class CannonController : MonoBehaviour
             rb.velocity = shootPoint.right * projectileSpeed;
             rb.gravityScale = gravityScale;
         }
+    }
+
+    private IEnumerator ShootingCooldown()
+    {
+        yield return new WaitForSeconds(shootCooldown); // Wait for cooldown duration
+        canShoot = true; // Allow shooting again
     }
 }
