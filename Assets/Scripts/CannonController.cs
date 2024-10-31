@@ -13,6 +13,7 @@ public class CannonController : MonoBehaviour
     public float gravityScale = 1f;
     public int ammoCount = 5;
     public float shootCooldown = 1f; // Cooldown duration between each shot
+    Quaternion spread;
 
     private int selectedCannonballType = -1; // Start with an invalid type
     private bool canShoot = false; // Flag to indicate if the cannon is ready to fire
@@ -116,11 +117,12 @@ public class CannonController : MonoBehaviour
         // Set canShoot to false immediately to prevent shooting again until cooldown is over
         canShoot = false;
         StartCoroutine(ShootingCooldown());
+        spread = Quaternion.Euler(0, 0, Random.Range(1, -5));
 
         // Use the selected cannonball prefab
         GameObject cannonballPrefab = cannonballPrefabs[selectedCannonballType];
 
-        GameObject cannonball = Instantiate(cannonballPrefab, shootPoint.position, shootPoint.rotation);
+        GameObject cannonball = Instantiate(cannonballPrefab, shootPoint.position, shootPoint.rotation * spread);
         Rigidbody2D rb = cannonball.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
