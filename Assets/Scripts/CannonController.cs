@@ -117,7 +117,7 @@ public class CannonController : MonoBehaviour
         // Set canShoot to false immediately to prevent shooting again until cooldown is over
         canShoot = false;
         StartCoroutine(ShootingCooldown());
-        spread = Quaternion.Euler(0, 0, Random.Range(1, -5));
+        spread = Quaternion.Euler(0, 0, Random.Range(4, -5));
 
         // Use the selected cannonball prefab
         GameObject cannonballPrefab = cannonballPrefabs[selectedCannonballType];
