@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eae2366ae0a93b84b99e9385380c6335
+guid: 30b8b50c5fca4884189f687fd2b1af9f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,169 +123,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MAN_0
+      name: Deck
       rect:
         serializedVersion: 2
-        x: 41
-        y: 276
-        width: 17
-        height: 18
+        x: 110
+        y: 231
+        width: 80
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fd7611c11a2c554d961a8d79dde43c0
-      internalID: 1980571264
+      spriteID: 7c9d4450a49c80a4499d40df166187c8
+      internalID: -834303212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAN_1
+      name: Ladder
       rect:
         serializedVersion: 2
-        x: 141
-        y: 276
-        width: 17
-        height: 18
+        x: 21
+        y: 202
+        width: 80
+        height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6ae36fab291c31489a25e236aed92a3
-      internalID: -2095465233
+      spriteID: e56ea266fc5711142a089e921bb2b6dc
+      internalID: 1221272154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAN_2
+      name: Stairs
       rect:
         serializedVersion: 2
-        x: 241
-        y: 276
-        width: 17
-        height: 18
+        x: 110
+        y: 202
+        width: 80
+        height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d196006fb1dca24d804c97b07298969
-      internalID: 2001720826
+      spriteID: 1dda002284426da42a212892e16e848d
+      internalID: -853978551
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAN_3
+      name: Port Hole
       rect:
         serializedVersion: 2
-        x: 41
-        y: 176
-        width: 17
-        height: 18
+        x: 110
+        y: 174
+        width: 80
+        height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6787641daf0d9149adebe861d514ae4
-      internalID: -487195256
+      spriteID: dfdaef97d12b3b14fbbd9aa3438141ec
+      internalID: -622333445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAN_4
+      name: Empty Room
       rect:
         serializedVersion: 2
-        x: 141
-        y: 176
-        width: 17
-        height: 18
+        x: 110
+        y: 145
+        width: 80
+        height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfa182e725afaf2408b7a08154ed8e34
-      internalID: -1877521013
+      spriteID: 98f6bf5cc169ecb40991a816b233b0f5
+      internalID: 1223146026
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAN_5
+      name: Just A Guy
       rect:
         serializedVersion: 2
-        x: 241
-        y: 176
+        x: 104
+        y: 116
         width: 17
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 851a86e27f1e24546807bb3da83e087a
-      internalID: -1978766453
+      spriteID: 3d93ab4f719abd149a9600a797aee443
+      internalID: 1628800652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAN_6
+      name: Barrel
       rect:
         serializedVersion: 2
-        x: 41
-        y: 76
-        width: 17
-        height: 18
+        x: 134
+        y: 119
+        width: 11
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f66a183308de7445ba8997fdc2e6eb7
-      internalID: 840922235
+      spriteID: 5eed3c392d50df84897157afe2b89c02
+      internalID: -1525724499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAN_7
+      name: Crate
       rect:
         serializedVersion: 2
-        x: 141
-        y: 76
-        width: 17
-        height: 18
+        x: 149
+        y: 119
+        width: 12
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd0be41a70f4714459cf84c3bba96aaa
-      internalID: -1863082382
+      spriteID: d2aa910bc3d8f0f45889330fef00d798
+      internalID: -1000098790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Cannon base
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 119
+        width: 24
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab6b5998c996ae343aa08495b3341849
+      internalID: 836113802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 113
+        width: 1
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5a1c1d2bc7ed384f8401835633c76cc
+      internalID: 2001963897
       vertices: []
       indices: 
       edges: []
@@ -301,14 +343,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MAN_0: 1980571264
-      MAN_1: -2095465233
-      MAN_2: 2001720826
-      MAN_3: -487195256
-      MAN_4: -1877521013
-      MAN_5: -1978766453
-      MAN_6: 840922235
-      MAN_7: -1863082382
+      Barrel: -1525724499
+      Crate: -1000098790
+      Deck: -834303212
+      Empty Room: 1223146026
+      Just A Guy: 1628800652
+      Ladder: 1221272154
+      New Cannon base: 836113802
+      Port Hole: -622333445
+      Stairs: -853978551
+      Wall: 2001963897
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
