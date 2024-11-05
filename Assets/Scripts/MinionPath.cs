@@ -6,6 +6,14 @@ using UnityEngine.AI;
 public class MinionPath : MonoBehaviour
 {
     [SerializeField] Transform destonation;
+    [SerializeField] Transform ladder;
+    [SerializeField] Transform ladderUpperPoint;
+
+    [SerializeField] bool onLadder;
+
+    [SerializeField] int destonationFloor;
+    [SerializeField] int currentFloor;
+
     NavMeshAgent agent;
 
     void Start()
@@ -18,6 +26,48 @@ public class MinionPath : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        agent.SetDestination(destonation.position);
+      
+        CheckFloor();
+        //if destonation is on the same floor then go to destonation
+        if (currentFloor == destonationFloor)
+        {
+            agent.SetDestination(destonation.position);
+        }
+        
+        else if (onLadder & destonationFloor > currentFloor)
+        {
+            agent.SetDestination(ladderUpperPoint.position);
+        }
+
+        //if it is on different floor then go to closest ladder
+        else
+        {
+            agent.SetDestination(ladder.position);
+        }
+        float xDiff = Mathf.Abs(transform.position.x - ladder.position.x);
+        if (xDiff < 0.5)
+        {
+            onLadder = true;
+        }
     }
+
+    void CheckFloor()
+    {
+        //if the destonation is at least 0.2 above by agent's Y then destonation floor is above
+        if (destonation.position.y > transform.position.y + 0.2f)
+        {
+            destonationFloor = currentFloor + 1;
+        }
+        //if the destonation is at least -0.5 below by agent's Y then destonation floor is below
+        else if (destonation.position.y < transform.position.y - 0.5f)
+        {
+            destonationFloor = currentFloor - 1;
+        }
+        else
+        {
+            destonationFloor = currentFloor;
+        }
+    }
+
+   
 }
