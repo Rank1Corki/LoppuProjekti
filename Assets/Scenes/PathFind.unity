@@ -234,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 476798796}
   m_Layer: 0
-  m_Name: LadderDownPoint (1)
+  m_Name: LadderUpperPoint
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -249,7 +249,7 @@ Transform:
   m_GameObject: {fileID: 476798795}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.53, y: -3.6, z: -0.025737306}
+  m_LocalPosition: {x: 22.53, y: -2.82, z: -0.025737306}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -732,7 +732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destonation: {fileID: 1247468071}
   ladder: {fileID: 1764538601}
-  ladderUpperPoint: {fileID: 0}
+  ladderUpperPoint: {fileID: 476798796}
   onLadder: 0
   destonationFloor: 1
   currentFloor: 1
