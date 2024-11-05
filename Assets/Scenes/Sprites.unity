@@ -361,6 +361,7 @@ GameObject:
   - component: {fileID: 1240248453}
   - component: {fileID: 1240248452}
   - component: {fileID: 1240248451}
+  - component: {fileID: 1240248454}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -380,6 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaff1ddf975e329468258bd67affa2db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemsList: []
 --- !u!114 &1240248452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,9 +407,28 @@ Transform:
   m_LocalPosition: {x: -1.1692067, y: 0.17614204, z: -0.094477184}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1993099740}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1240248454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240248450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb767e0c70d6e9449d1b4f517f8b360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panSpeed: 10
+  panBorderThickness: 20
+  panLimit: {x: 116.13, y: 94.23}
+  scrollSpeed: 200
+  minZoom: 2
+  maxZoom: 50
 --- !u!212 &1444252406 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 7892221999560629217, guid: b3afeb67aed394c4cb817d0dab225e96, type: 3}
@@ -601,8 +622,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.2493372, y: 0.59722465, z: 1}
-  m_Center: {x: -0.04794979, y: -0.14384833, z: 0}
+  m_Size: {x: 2.0847464, y: 0.9221062, z: 1}
+  m_Center: {x: 0.32334328, y: -0.14384833, z: 0}
 --- !u!114 &1637268831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,12 +964,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993099737}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.1692067, y: -0.17614204, z: -9.905522}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1240248453}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5900888743922085139
 PrefabInstance:
@@ -1002,6 +1023,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5478594662237713491, guid: b3afeb67aed394c4cb817d0dab225e96, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6172472402880480489, guid: b3afeb67aed394c4cb817d0dab225e96, type: 3}
       propertyPath: maxAngle
       value: 60
@@ -1010,6 +1035,10 @@ PrefabInstance:
       propertyPath: ammoCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6172472402880480489, guid: b3afeb67aed394c4cb817d0dab225e96, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 1240248451}
     - target: {fileID: 6172472402880480489, guid: b3afeb67aed394c4cb817d0dab225e96, type: 3}
       propertyPath: trajectorySteps
       value: 70
@@ -1026,6 +1055,10 @@ PrefabInstance:
       propertyPath: cannonballPrefabs.Array.data[1]
       value: 
       objectReference: {fileID: 338429742763164302, guid: 87a8e7c5063806a46886560ca6fed602, type: 3}
+    - target: {fileID: 7892221999560629217, guid: b3afeb67aed394c4cb817d0dab225e96, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1044,7 +1077,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1993099740}
   - {fileID: 5900888743922085139}
   - {fileID: 654471828}
   - {fileID: 1240248453}
