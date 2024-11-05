@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4817230a1f00efd45808bd50b536d92a
+guid: b47cc0419c923c64bbd7f9fc56bc68e4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Stair wall
+      name: Floor_0
       rect:
         serializedVersion: 2
         x: 109
@@ -131,83 +131,83 @@ TextureImporter:
         width: 80
         height: 26
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df2c971eae906594bace88b7603fca9a
-      internalID: -823863798
+      spriteID: 6f86d635c45d18740b760b6f975cfdf1
+      internalID: -2053943669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ladder wall
+      name: Floor_1
       rect:
         serializedVersion: 2
-        x: 108
-        y: 219
-        width: 80
-        height: 26
+        x: 5
+        y: 194
+        width: 99
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cec6a5a568dbf14d857af24aebdca0d
-      internalID: 1521490192
+      spriteID: 4df5ee951e6ba9e40935f8d8136245a2
+      internalID: -1850723188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stairs and ladders_2
+      name: Floor_2
       rect:
         serializedVersion: 2
-        x: 127
-        y: 140
-        width: 112
-        height: 75
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7fb082207d9885040958e72201f98a30
-      internalID: -1309062244
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Stairs and ladders_3
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 140
+        x: 105
+        y: 142
         width: 80
         height: 60
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58a444e70f7414446a521ee58e07c8e2
-      internalID: -1118913673
+      spriteID: b29ce5bf0725a814fa82fbb99f971f9e
+      internalID: 1354945461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stairs
+      name: Floor_3
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 142
+        width: 193
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4cbc5f41678cf44e86692b0a28872da
+      internalID: 1635134286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_4
       rect:
         serializedVersion: 2
         x: 23
@@ -215,20 +215,20 @@ TextureImporter:
         width: 35
         height: 26
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00c3d9a457a6b3c488f605eff08ddaad
-      internalID: 1925727786
+      spriteID: 68b2f6bc3f661eb40827744ba068386b
+      internalID: -1870709553
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ladders
+      name: Floor_5
       rect:
         serializedVersion: 2
         x: 75
@@ -236,41 +236,41 @@ TextureImporter:
         width: 24
         height: 26
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb1503c135f65be4c81fcc79565c7c9d
-      internalID: 1034488508
+      spriteID: d6c0a589677f81d4eae67a092f025fc1
+      internalID: -1374711605
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stairs and ladders_6
+      name: Floor_6
       rect:
         serializedVersion: 2
-        x: 134
+        x: 130
         y: 113
-        width: 11
+        width: 15
         height: 23
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c2c4cb06aea6074ab3306320fd3ceab
-      internalID: 833297659
+      spriteID: 42ece0da891a86f4bad6c1d3df8b7e8a
+      internalID: 1861663862
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stairs and ladders_7
+      name: Floor_7
       rect:
         serializedVersion: 2
         x: 149
@@ -278,20 +278,20 @@ TextureImporter:
         width: 12
         height: 12
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04e6f577867410442a2b22f09c0e3ecd
-      internalID: -1107982997
+      spriteID: b4571531dbcc0bc438d09be4d30cab8a
+      internalID: -2069494648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stairs and ladders_8
+      name: Floor_8
       rect:
         serializedVersion: 2
         x: 170
@@ -299,20 +299,20 @@ TextureImporter:
         width: 24
         height: 13
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f4733ea006ca084ba8115ff1e875989
-      internalID: -1519978
+      spriteID: 0c04e5560aad88e43b3bd535534b50b7
+      internalID: -1743745918
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Door
+      name: Floor_9
       rect:
         serializedVersion: 2
         x: 203
@@ -320,77 +320,119 @@ TextureImporter:
         width: 10
         height: 21
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ec9f1559d1f6ed4eb95c6e0fb75fd75
-      internalID: 991201413
+      spriteID: b9ff86dc6f60a1e4a9a089eeee348d91
+      internalID: -1572575955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stairs and ladders_10
+      name: Floor_10
       rect:
         serializedVersion: 2
         x: 222
         y: 114
-        width: 17
+        width: 24
         height: 23
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be629e6d3a98e254aa7a3207c03d546d
-      internalID: 1988596338
+      spriteID: 89a7da12fdd1090478709a132d6d0671
+      internalID: -2065251362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stairs and ladders_11
+      name: Floor_11
       rect:
         serializedVersion: 2
-        x: 130
-        y: 113
-        width: 1
-        height: 23
+        x: 160
+        y: 29
+        width: 80
+        height: 26
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28df73bb2d5b81044bf893b94b961b8b
-      internalID: 782423512
+      spriteID: c46b1f35ffe9f244fb6d424512ad7b6c
+      internalID: -908996679
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall
+      name: Floor1
       rect:
         serializedVersion: 2
-        x: 244
-        y: 114
-        width: 2
-        height: 23
+        x: 109
+        y: 230
+        width: 80
+        height: 2
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b410d8f5499d3994f8e78410eac57bb9
-      internalID: 92607870
+      spriteID: a9dc04b34de62bb41ad87fcdae61ad42
+      internalID: -2070286519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor2
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 224
+        width: 80
+        height: 2
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 429be3951aa878043b5d62b80fa1bf55
+      internalID: -435494870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor3
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 218
+        width: 80
+        height: 2
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 288cfd7f9fece1c4893275fda32ee4bb
+      internalID: 1785770281
       vertices: []
       indices: 
       edges: []
@@ -406,19 +448,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Door: 991201413
-      Ladder wall: 1521490192
-      Ladders: 1034488508
-      Stair wall: -823863798
-      Stairs: 1925727786
-      Stairs and ladders_10: 1988596338
-      Stairs and ladders_11: 782423512
-      Stairs and ladders_2: -1309062244
-      Stairs and ladders_3: -1118913673
-      Stairs and ladders_6: 833297659
-      Stairs and ladders_7: -1107982997
-      Stairs and ladders_8: -1519978
-      Wall: 92607870
+      Floor1: -2070286519
+      Floor2: -435494870
+      Floor3: 1785770281
+      Floor_0: -2053943669
+      Floor_1: -1850723188
+      Floor_10: -2065251362
+      Floor_11: -908996679
+      Floor_2: 1354945461
+      Floor_3: 1635134286
+      Floor_4: -1870709553
+      Floor_5: -1374711605
+      Floor_6: 1861663862
+      Floor_7: -2069494648
+      Floor_8: -1743745918
+      Floor_9: -1572575955
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
