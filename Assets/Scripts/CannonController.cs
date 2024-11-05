@@ -9,14 +9,14 @@ public class CannonController : MonoBehaviour
     public float projectileSpeed = 10f;
     public float maxAngle = 45f;
     public int trajectorySteps = 30;
-    public GameObject[] cannonballPrefabs; // Array to store different cannonball prefabs
+    public GameObject[] cannonballPrefabs;
     public float gravityScale = 1f;
-    public int ammoCount = 5;
-    public float shootCooldown = 1f; // Cooldown duration between each shot
+    public float shootCooldown = 1f;
+    public Inventory inventory;
     Quaternion spread;
 
-    private int selectedCannonballType = -1; // Start with an invalid type
-    private bool canShoot = false; // Flag to indicate if the cannon is ready to fire
+    private int selectedCannonballType = -1;
+    private bool canShoot = false;
     private ObjectSelector1 objectSelector;
 
     private void Start()
@@ -40,15 +40,9 @@ public class CannonController : MonoBehaviour
                 lineRenderer.enabled = false;
             }
 
-            if (Input.GetMouseButtonUp(0) && ammoCount > 0)
+            if (Input.GetMouseButtonUp(0))
             {
                 ShootCannonball();
-                ammoCount--;
-
-                if (ammoCount == 0)
-                {
-                    objectSelector.Deselect();
-                }
             }
         }
     }
@@ -57,10 +51,29 @@ public class CannonController : MonoBehaviour
     {
         if (type >= 0 && type < cannonballPrefabs.Length)
         {
-            selectedCannonballType = type; // Update the selected type
-            Debug.Log("Cannonball Type Set: " + type);
-            ammoCount += 5;
-            StartCoroutine(ActivateShootingAfterDelay(1f)); // Start the coroutine with a 1-second delay
+            selectedCannonballType = type;
+            string cannonballType = cannonballPrefabs[selectedCannonballType].name;
+
+            // Debug log to confirm the item name and quantity
+            Debug.Log($"Checking for {cannonballType} in inventory.");
+
+            inventory.ShowInventory();  // Print the current inventory contents
+
+            foreach (var key in inventory.items.Keys)
+            {
+                Debug.Log($"Inventory Key: {key}");
+            }
+
+
+            if (inventory.HasItem(cannonballType, 1))
+            {
+                Debug.Log("Ammo available for the selected cannonball type.");
+                StartCoroutine(ActivateShootingAfterDelay(1f));
+            }
+            else
+            {
+                Debug.LogWarning("No ammo available for the selected cannonball type.");
+            }
         }
         else
         {
@@ -68,20 +81,18 @@ public class CannonController : MonoBehaviour
         }
     }
 
+
     private IEnumerator ActivateShootingAfterDelay(float delay)
     {
-        canShoot = false; // Set canShoot to false initially
-        Debug.Log("Cannon is in use and cannot shoot yet.");
-        yield return new WaitForSeconds(delay); // Wait for the specified delay
-        canShoot = true; // Allow shooting after the delay
-        Debug.Log("Cannon is now ready to shoot.");
+        canShoot = false;
+        yield return new WaitForSeconds(delay);
+        canShoot = true;
     }
 
     private void RotateBarrelTowardsMouse()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0f;
-
         Vector2 direction = (mousePosition - barrel.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         angle = Mathf.Clamp(angle, 0, maxAngle);
@@ -112,28 +123,35 @@ public class CannonController : MonoBehaviour
 
     private void ShootCannonball()
     {
-        if (!canShoot) return; // Prevent shooting if canShoot is false
+        if (!canShoot) return;
 
-        // Set canShoot to false immediately to prevent shooting again until cooldown is over
-        canShoot = false;
-        StartCoroutine(ShootingCooldown());
-        spread = Quaternion.Euler(0, 0, Random.Range(4, -5));
+        string cannonballType = cannonballPrefabs[selectedCannonballType].name;
 
-        // Use the selected cannonball prefab
-        GameObject cannonballPrefab = cannonballPrefabs[selectedCannonballType];
-
-        GameObject cannonball = Instantiate(cannonballPrefab, shootPoint.position, shootPoint.rotation * spread);
-        Rigidbody2D rb = cannonball.GetComponent<Rigidbody2D>();
-        if (rb != null)
+        if (inventory.HasItem(cannonballType, 1))
         {
-            rb.velocity = shootPoint.right * projectileSpeed;
-            rb.gravityScale = gravityScale;
+            canShoot = false;
+            StartCoroutine(ShootingCooldown());
+            spread = Quaternion.Euler(0, 0, Random.Range(4, -5));
+
+            GameObject cannonball = Instantiate(cannonballPrefabs[selectedCannonballType], shootPoint.position, shootPoint.rotation * spread);
+            Rigidbody2D rb = cannonball.GetComponent<Rigidbody2D>();
+            inventory.RemoveItem(cannonballType, 1);
+            if (rb != null)
+            {
+                rb.velocity = shootPoint.right * projectileSpeed;
+                rb.gravityScale = gravityScale;
+            }
+        }
+        else
+        {
+            objectSelector.Deselect();
+            Debug.LogWarning("Not enough ammo in inventory!");
         }
     }
 
     private IEnumerator ShootingCooldown()
     {
-        yield return new WaitForSeconds(shootCooldown); // Wait for cooldown duration
-        canShoot = true; // Allow shooting again
+        yield return new WaitForSeconds(shootCooldown);
+        canShoot = true;
     }
 }
