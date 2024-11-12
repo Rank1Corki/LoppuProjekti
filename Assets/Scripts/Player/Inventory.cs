@@ -62,6 +62,19 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    // Clear inventory when the object is disabled (i.e., when the game stops or the object is destroyed)
+    void OnDisable()
+    {
+        ClearInventory();
+    }
+
+    // Clear inventory method
+    private void ClearInventory()
+    {
+        items.Clear();
+        itemsList.Clear();
+        Debug.Log("Inventory cleared on application quit or object disable.");
+    }
 
     public void ShowInventory()
     {

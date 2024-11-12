@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: -3520346910522530401}
   - component: {fileID: 1797414544600146325}
   - component: {fileID: 630132339212439999}
+  - component: {fileID: 8978721964417905125}
   m_Layer: 0
-  m_Name: ShrapnelBall
+  m_Name: ShrapnellShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.1890001, y: -2.0700002, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,9 +102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shrapnelPrefab: {fileID: 4830533505448112130, guid: 545b12929e48b174a9ef50a36c86de10, type: 3}
   shrapnelCount: 4
-  shrapnelSpread: 30
   shrapnelForce: 10
   explodeDelay: 1
+  spawnArea: {fileID: 8978721964417905125}
 --- !u!50 &1797414544600146325
 Rigidbody2D:
   serializedVersion: 4
@@ -176,3 +177,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24, y: 0.24}
   m_EdgeRadius: 0
+--- !u!58 &8978721964417905125
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4830533505448112130}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4
