@@ -8,9 +8,12 @@ public class Cannonball : MonoBehaviour
         Destroy(gameObject, 5f);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Destroy the cannonball on collision with any object
         Destroy(gameObject);
+
+        ModuleInfo partInfo = collision.gameObject.GetComponent<ModuleInfo>();
+
+        partInfo.hP -= 10;
     }
 }
