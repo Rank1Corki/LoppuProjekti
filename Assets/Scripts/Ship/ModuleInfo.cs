@@ -5,13 +5,15 @@ using UnityEngine;
 public class ModuleInfo : MonoBehaviour
 {
     public int hP = 100;
-    public GameObject destroyed;
-    private GameObject intact;
+    public Sprite destroyed;
+    private Sprite intact;
+    private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
-        intact = this.gameObject;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+      
     }
 
     // Update is called once per frame
@@ -19,7 +21,7 @@ public class ModuleInfo : MonoBehaviour
     {
         if (hP <= 0)
         {
-
+            spriteRenderer.sprite = destroyed;
         }
     }
 }

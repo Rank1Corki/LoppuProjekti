@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7460566802086846908}
   - component: {fileID: 3343408594144214054}
   - component: {fileID: 6081545229047302032}
+  - component: {fileID: 8263263228269797355}
   m_Layer: 0
   m_Name: ship_v2_helmUpper
   m_TagString: Untagged
@@ -130,6 +131,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.125, y: 1.5625}
   m_EdgeRadius: 0
+--- !u!114 &8263263228269797355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203836916692072925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4178af7760ae640a1b66f4229f27f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hP: 100
+  destroyed: {fileID: 0}
 --- !u!1 &582519818673925562
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +240,7 @@ GameObject:
   - component: {fileID: 1106488764011638877}
   - component: {fileID: 2886738602691076982}
   - component: {fileID: 3013009742954045856}
+  - component: {fileID: 239467663537863206}
   m_Layer: 0
   m_Name: ship_v2_bowMidle
   m_TagString: Untagged
@@ -344,6 +360,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.625, y: 1.5625}
   m_EdgeRadius: 0
+--- !u!114 &239467663537863206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668771505607013346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4178af7760ae640a1b66f4229f27f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hP: 100
+  destroyed: {fileID: 0}
 --- !u!1 &860766183776403861
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,6 +469,7 @@ GameObject:
   - component: {fileID: 3232290870193218059}
   - component: {fileID: 744211225308719137}
   - component: {fileID: 7259687451906320807}
+  - component: {fileID: 3225910900091923293}
   m_Layer: 0
   m_Name: ship_v2_helmLower
   m_TagString: Untagged
@@ -558,6 +589,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.6875, y: 1.5625}
   m_EdgeRadius: 0
+--- !u!114 &3225910900091923293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498247571911653489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4178af7760ae640a1b66f4229f27f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hP: 100
+  destroyed: {fileID: 0}
 --- !u!1 &1642909947207011365
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +614,7 @@ GameObject:
   - component: {fileID: 5603464871753087238}
   - component: {fileID: 4092516470930481876}
   - component: {fileID: 797486754142865928}
+  - component: {fileID: 148901428501272557}
   m_Layer: 0
   m_Name: Port Hole
   m_TagString: Untagged
@@ -688,6 +734,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 1.5625}
   m_EdgeRadius: 0
+--- !u!114 &148901428501272557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642909947207011365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4178af7760ae640a1b66f4229f27f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hP: 100
+  destroyed: {fileID: 0}
 --- !u!1 &1647585639409186032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,6 +1062,7 @@ GameObject:
   - component: {fileID: 3288128112128584186}
   - component: {fileID: 719406773867904731}
   - component: {fileID: 5304021593212212087}
+  - component: {fileID: 3269243185023566030}
   m_Layer: 0
   m_Name: Empty Room
   m_TagString: Untagged
@@ -1121,6 +1182,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 1.5625}
   m_EdgeRadius: 0
+--- !u!114 &3269243185023566030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5053477275687628741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4178af7760ae640a1b66f4229f27f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hP: 100
+  destroyed: {fileID: 0}
 --- !u!1 &5815493589080993046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,6 +1711,7 @@ GameObject:
   - component: {fileID: 7451115393177739861}
   - component: {fileID: 3339779597490602525}
   - component: {fileID: 875081862521312852}
+  - component: {fileID: 2943445663884929995}
   m_Layer: 0
   m_Name: ship_v2_helmMidle
   m_TagString: Untagged
@@ -1755,6 +1831,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6, y: 1.5625}
   m_EdgeRadius: 0
+--- !u!114 &2943445663884929995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7923419688214759734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4178af7760ae640a1b66f4229f27f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hP: 100
+  destroyed: {fileID: 0}
 --- !u!1 &7934918261181784730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,6 +1856,7 @@ GameObject:
   - component: {fileID: 3154934096725014566}
   - component: {fileID: 8105517359252303216}
   - component: {fileID: 785012788812894852}
+  - component: {fileID: 8091869820816323927}
   m_Layer: 0
   m_Name: ship_v2_bowLower
   m_TagString: Untagged
@@ -1885,6 +1976,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.9375, y: 1.5625}
   m_EdgeRadius: 0
+--- !u!114 &8091869820816323927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7934918261181784730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4178af7760ae640a1b66f4229f27f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hP: 100
+  destroyed: {fileID: 0}
 --- !u!1 &7966731942781497244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,6 +2001,7 @@ GameObject:
   - component: {fileID: 1523170077604827128}
   - component: {fileID: 152284520575207782}
   - component: {fileID: 4434657472473442922}
+  - component: {fileID: 9216718742601906392}
   m_Layer: 0
   m_Name: Ladder wall
   m_TagString: Untagged
@@ -2015,6 +2121,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 1.625}
   m_EdgeRadius: 0
+--- !u!114 &9216718742601906392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966731942781497244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4178af7760ae640a1b66f4229f27f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hP: 100
+  destroyed: {fileID: 0}
 --- !u!1 &9194283105727998913
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,6 +2146,7 @@ GameObject:
   - component: {fileID: 1986758872251870854}
   - component: {fileID: 4067180995840014269}
   - component: {fileID: 5204082563688495508}
+  - component: {fileID: 3305079269937556610}
   m_Layer: 0
   m_Name: Ladder wall (1)
   m_TagString: Untagged
@@ -2145,3 +2266,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 1.625}
   m_EdgeRadius: 0
+--- !u!114 &3305079269937556610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194283105727998913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4178af7760ae640a1b66f4229f27f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hP: 100
+  destroyed: {fileID: 0}
