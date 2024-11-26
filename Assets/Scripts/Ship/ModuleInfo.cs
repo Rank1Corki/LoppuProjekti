@@ -8,6 +8,8 @@ public class ModuleInfo : MonoBehaviour
     public Sprite destroyed;
     private Sprite intact;
     private SpriteRenderer spriteRenderer;
+    bool repairTool = true;
+    public Inventory inventory;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,18 @@ public class ModuleInfo : MonoBehaviour
         if (hP <= 0)
         {
             spriteRenderer.sprite = destroyed;
+        }
+    }
+
+    private void OnMouseOver()
+    {
+        // Check for left mouse button click to select the cannon
+        if (Input.GetMouseButtonDown(0) && repairTool)
+        {
+            if (inventory.HasItem("wood", 1))
+            {
+                spriteRenderer.sprite = destroyed;
+            }
         }
     }
 }
