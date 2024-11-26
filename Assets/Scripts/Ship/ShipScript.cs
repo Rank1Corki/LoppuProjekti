@@ -5,13 +5,7 @@ using UnityEngine;
 public class ShipScript : MonoBehaviour
 {
 
-    public enum PlayerState
-    {
-        PlayerLeft,
-        PlayerRight
-    }
 
-    public PlayerState currentState;
     // Start is called before the first frame update
     void Start()
     {

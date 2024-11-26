@@ -260,7 +260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e35641e3f595cf429dc2944366c4ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
 --- !u!1001 &644953770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -288,6 +287,10 @@ PrefabInstance:
     - target: {fileID: 1523170077604827128, guid: 5450bcd62f68f75438b8943547e74890, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.39800024
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986758872251870854, guid: 5450bcd62f68f75438b8943547e74890, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.94
       objectReference: {fileID: 0}
     - target: {fileID: 3288128112128584186, guid: 5450bcd62f68f75438b8943547e74890, type: 3}
       propertyPath: m_LocalPosition.y
@@ -332,6 +335,10 @@ PrefabInstance:
     - target: {fileID: 3387890804311448367, guid: 5450bcd62f68f75438b8943547e74890, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343980883079506681, guid: 5450bcd62f68f75438b8943547e74890, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.92
       objectReference: {fileID: 0}
     - target: {fileID: 4820788129985815050, guid: 5450bcd62f68f75438b8943547e74890, type: 3}
       propertyPath: m_Name
@@ -858,7 +865,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e35641e3f595cf429dc2944366c4ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 1
 --- !u!1 &1828550210
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,6 +874,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1828550211}
+  - component: {fileID: 1828550212}
   m_Layer: 0
   m_Name: TurnManager
   m_TagString: Untagged
@@ -890,6 +897,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1828550212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828550210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96937ed7d077a444c98ee8a0143c5bf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
 --- !u!1 &1968633968
 GameObject:
   m_ObjectHideFlags: 0
