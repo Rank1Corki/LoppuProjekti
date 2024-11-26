@@ -11,11 +11,13 @@ public class ModuleInfo : MonoBehaviour
     bool repairTool = true;
     public Inventory inventory;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-      
+        intact = spriteRenderer.sprite;
     }
 
     // Update is called once per frame
@@ -25,16 +27,23 @@ public class ModuleInfo : MonoBehaviour
         {
             spriteRenderer.sprite = destroyed;
         }
+
+
     }
 
     private void OnMouseOver()
     {
         // Check for left mouse button click to select the cannon
-        if (Input.GetMouseButtonDown(0) && repairTool)
+        if (Input.GetMouseButtonDown(0) && repairTool && spriteRenderer.sprite == destroyed)
         {
-            if (inventory.HasItem("wood", 1))
+            if (inventory.HasItem("Wood", 1))
             {
-                spriteRenderer.sprite = destroyed;
+                hP = 100;
+                spriteRenderer.sprite = intact;
+            }
+            else
+            {
+                Debug.Log("No Wood");
             }
         }
     }
