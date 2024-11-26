@@ -5,9 +5,21 @@ public class PlayerInteraction : MonoBehaviour
 {
     public Inventory inventory; // Assign this in the Inspector
 
+    public TurnManager turnManager;
+    
+
+    private void Start()
+    {
+        
+
+    }
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Left click
+       
+    
+        
+        if (Input.GetMouseButtonDown(0) && turnManager.isMyTurn(this.tag)) // Left click
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit.collider != null)

@@ -10,7 +10,7 @@ public class TurnManager : MonoBehaviour
         PlayerRight
     }
 
-    public PlayerState currentState;
+    public PlayerState currentState;    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +21,31 @@ public class TurnManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public bool isMyTurn(string tag)
+    {
+        switch (currentState)
+        {
+            case PlayerState.PlayerLeft:
+                if (tag == "Left")
+                {
+                    return true;
+                }
+                break;
+
+            case PlayerState.PlayerRight:
+                if (tag == "Right")
+                {
+                    return true;
+                }
+                break;
+
+            default:
+                Debug.Log("Unknown state.");
+                break;
+        }
+
+        return false;
     }
 }
