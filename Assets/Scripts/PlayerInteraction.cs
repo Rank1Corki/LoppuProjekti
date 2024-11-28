@@ -10,7 +10,6 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Start()
     {
-        
 
     }
 
@@ -19,13 +18,13 @@ public class PlayerInteraction : MonoBehaviour
        
     
         
-        if (Input.GetMouseButtonDown(0) && turnManager.isMyTurn(this.tag)) // Left click
+        if (Input.GetMouseButtonDown(0)) // Left click and check is your turn
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit.collider != null)
             {
                 Barrel barrel = hit.collider.GetComponent<Barrel>();
-                if (barrel != null)
+                if (barrel != null && turnManager.isMyTurn(this.tag))
                 {
                     List<(string, int)> items = barrel.OpenBarrel();
                     foreach (var item in items)
