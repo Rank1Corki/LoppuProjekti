@@ -11,6 +11,8 @@ public class ModuleInfo : MonoBehaviour
     bool repairTool = true;
     public Inventory inventory;
 
+    TurnManager turnManager;
+    CursorManager cursorManager;
 
 
     // Start is called before the first frame update
@@ -18,6 +20,14 @@ public class ModuleInfo : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         intact = spriteRenderer.sprite;
+
+        GameObject tM = GameObject.Find("TurnManager");
+
+       turnManager = tM.GetComponent<TurnManager>();
+        cursorManager = tM.GetComponent<CursorManager>();
+
+        Debug.Log(this.tag);
+
     }
 
     // Update is called once per frame
@@ -33,13 +43,14 @@ public class ModuleInfo : MonoBehaviour
 
     private void OnMouseOver()
     {
-        // Check for left mouse button click to select the cannon
-        if (Input.GetMouseButtonDown(0) && repairTool && spriteRenderer.sprite == destroyed)
+        
+        if (Input.GetMouseButtonDown(0) && cursorManager.repairToolIsActive && spriteRenderer.sprite == destroyed)
         {
-            if (inventory.HasItem("Wood", 1))
+            if (inventory.HasItem("Wood", 1) && turnManager.isMyTurn(this.tag))
             {
                 hP = 100;
                 spriteRenderer.sprite = intact;
+                inventory.RemoveItem("Wood", 1);
             }
             else
             {
