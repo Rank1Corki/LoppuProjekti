@@ -7,7 +7,6 @@ public class CannonController : MonoBehaviour
     public Transform shootPoint;
     public LineRenderer lineRenderer;
     public float projectileSpeed = 10f;
-    public float maxAngle = 45f;
     public int trajectorySteps = 30;
     public GameObject[] cannonballPrefabs;
     public float gravityScale = 1f;
@@ -18,6 +17,10 @@ public class CannonController : MonoBehaviour
     private int selectedCannonballType = -1;
     private bool canShoot = false;
     private ObjectSelector1 objectSelector;
+
+    // New Variables
+    public bool lockToLeft = false; // Lock rotation to the left
+    public bool lockToRight = false; // Lock rotation to the right
 
     private void Start()
     {
@@ -54,16 +57,9 @@ public class CannonController : MonoBehaviour
             selectedCannonballType = type;
             string cannonballType = cannonballPrefabs[selectedCannonballType].name;
 
-            // Debug log to confirm the item name and quantity
             Debug.Log($"Checking for {cannonballType} in inventory.");
 
-            inventory.ShowInventory();  // Print the current inventory contents
-
-            foreach (var key in inventory.items.Keys)
-            {
-                Debug.Log($"Inventory Key: {key}");
-            }
-
+            inventory.ShowInventory();
 
             if (inventory.HasItem(cannonballType, 1))
             {
@@ -81,7 +77,6 @@ public class CannonController : MonoBehaviour
         }
     }
 
-
     private IEnumerator ActivateShootingAfterDelay(float delay)
     {
         canShoot = false;
@@ -93,12 +88,21 @@ public class CannonController : MonoBehaviour
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0f;
+
         Vector2 direction = (mousePosition - barrel.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        angle = Mathf.Clamp(angle, 0, maxAngle);
 
-        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        barrel.rotation = Quaternion.Slerp(barrel.rotation, targetRotation, Time.deltaTime * 5f);
+        // Lock rotation based on user preference
+        if (lockToLeft && angle > 0)
+        {
+            angle = Mathf.Clamp(angle, 0, 180);
+        }
+        else if (lockToRight && angle < 0)
+        {
+            angle = Mathf.Clamp(angle, -180, 0);
+        }
+
+        barrel.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     private void DrawTrajectory()
@@ -131,11 +135,12 @@ public class CannonController : MonoBehaviour
         {
             canShoot = false;
             StartCoroutine(ShootingCooldown());
-            spread = Quaternion.Euler(0, 0, Random.Range(4, -5));
+            spread = Quaternion.Euler(0, 0, Random.Range(-5, 5));
 
             GameObject cannonball = Instantiate(cannonballPrefabs[selectedCannonballType], shootPoint.position, shootPoint.rotation * spread);
             Rigidbody2D rb = cannonball.GetComponent<Rigidbody2D>();
             inventory.RemoveItem(cannonballType, 1);
+
             if (rb != null)
             {
                 rb.velocity = shootPoint.right * projectileSpeed;
