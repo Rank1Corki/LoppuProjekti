@@ -64,6 +64,11 @@ public class CameraController : MonoBehaviour
         transform.position = pos;
     }
 
+    public void MoveCamera(GameObject target)
+    {
+        transform.position = target.transform.position;
+    }
+
     void HandleZoom()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");

@@ -556,6 +556,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1211379798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1211379799}
+  m_Layer: 0
+  m_Name: CameraTargetRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1211379799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211379798}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 57.95, y: 1.36, z: -4.288714}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1357077165
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +986,37 @@ MonoBehaviour:
   cursorTexture: {fileID: 2800000, guid: 606c8fbea8080ac4a90b1ca2f222f4fc, type: 3}
   cursorMode: 0
   hotSpot: {x: 5, y: 10}
+--- !u!1 &1914126188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1914126189}
+  m_Layer: 0
+  m_Name: CameraTargetLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1914126189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914126188}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.46, y: 0.81, z: -4.288714}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1968633968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,12 +1206,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb767e0c70d6e9449d1b4f517f8b360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panSpeed: 0
+  panSpeed: 5
   panBorderThickness: 10
   panLimit: {x: 60, y: 20}
   scrollSpeed: 20
   minZoom: 10
-  maxZoom: 50
+  maxZoom: 70
 --- !u!1001 &5576248709339016146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1569,3 +1631,5 @@ SceneRoots:
   - {fileID: 1103398687}
   - {fileID: 1577396224}
   - {fileID: 1428947768}
+  - {fileID: 1914126189}
+  - {fileID: 1211379799}

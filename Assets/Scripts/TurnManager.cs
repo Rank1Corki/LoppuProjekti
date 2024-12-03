@@ -12,11 +12,14 @@ public class TurnManager : MonoBehaviour
 
     [SerializeField] int commands;
 
-    public PlayerState currentState;    
+    public PlayerState currentState;
+
+    private CameraController camera;
     // Start is called before the first frame update
     void Start()
     {
         commands = 4;
+        camera = GameObject.Find("Main Camera").GetComponent<CameraController>();
     }
 
     // Update is called once per frame
@@ -38,6 +41,7 @@ public class TurnManager : MonoBehaviour
                         currentState = PlayerState.PlayerRight;
                         Debug.Log("Your turn is over");
                         commands = 5;
+                        camera.MoveCamera(GameObject.Find("CameraTargetRight"));
                         return true;
                     }
                     Debug.Log($"You have {commands} commands left");
@@ -55,6 +59,7 @@ public class TurnManager : MonoBehaviour
                         currentState = PlayerState.PlayerLeft;
                         Debug.Log("Your turn is over");
                         commands = 4;
+                        camera.MoveCamera(GameObject.Find("CameraTargetLeft"));
                         return true;
                     }
                     Debug.Log($"You have {commands} commands left");
