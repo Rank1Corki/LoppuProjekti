@@ -7,7 +7,7 @@ public class CannonController : MonoBehaviour
     public Transform shootPoint;
     public LineRenderer lineRenderer;
     public float projectileSpeed = 10f;
-    public float maxAngle = 45f;
+    public float maxAngle;
     public int trajectorySteps = 30;
     public GameObject[] cannonballPrefabs;
     public float gravityScale = 1f;
@@ -19,9 +19,16 @@ public class CannonController : MonoBehaviour
     private bool canShoot = false;
     private ObjectSelector1 objectSelector;
 
+
+    TurnManager turnManager;
+
     private void Start()
     {
         objectSelector = GetComponent<ObjectSelector1>();
+
+        GameObject tM = GameObject.Find("TurnManager");
+
+        turnManager = tM.GetComponent<TurnManager>();
     }
 
     private void Update()
@@ -107,7 +114,9 @@ public class CannonController : MonoBehaviour
         lineRenderer.endColor = Color.white;
 
         Vector2 startPoint = shootPoint.position;
+
         Vector2 initialVelocity = shootPoint.right * projectileSpeed;
+
 
         lineRenderer.positionCount = trajectorySteps;
         for (int i = 0; i < trajectorySteps; i++)
@@ -138,7 +147,15 @@ public class CannonController : MonoBehaviour
             inventory.RemoveItem(cannonballType, 1);
             if (rb != null)
             {
-                rb.velocity = shootPoint.right * projectileSpeed;
+                if (turnManager.currentState == TurnManager.PlayerState.PlayerLeft)
+                {
+                    rb.velocity = shootPoint.right * projectileSpeed;
+                }
+                else if (turnManager.currentState == TurnManager.PlayerState.PlayerRight)
+                {
+                    rb.velocity = shootPoint.right * - projectileSpeed;
+                }
+        
                 rb.gravityScale = gravityScale;
             }
         }

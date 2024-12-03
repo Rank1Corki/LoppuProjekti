@@ -10,7 +10,7 @@ public class InventoryItem
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] public List<InventoryItem> itemsList = new List<InventoryItem>();
+    public List<InventoryItem> itemsList = new List<InventoryItem>();
     public Dictionary<string, int> items = new Dictionary<string, int>();
 
     private void UpdateItemsList()

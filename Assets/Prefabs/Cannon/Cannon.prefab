@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.63, y: -1.13, z: -0.0711777}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2983833571063074202}
@@ -53,7 +53,7 @@ MonoBehaviour:
   barrel: {fileID: 2983833571063074202}
   shootPoint: {fileID: 1696631955525316165}
   lineRenderer: {fileID: 6016895926731169808}
-  projectileSpeed: 12
+  projectileSpeed: 27
   maxAngle: 60
   trajectorySteps: 70
   cannonballPrefabs:
@@ -766,7 +766,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
