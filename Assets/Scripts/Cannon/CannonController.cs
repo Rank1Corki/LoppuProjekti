@@ -101,8 +101,21 @@ public class CannonController : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0f;
         Vector2 direction = (mousePosition - barrel.position).normalized;
+
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        angle = Mathf.Clamp(angle, 0, maxAngle);
+
+        Debug.Log(angle);
+
+        if (turnManager.currentState == TurnManager.PlayerState.PlayerLeft)
+        {
+          
+            angle = Mathf.Clamp(angle, 0, maxAngle);
+        }
+        else if (turnManager.currentState == TurnManager.PlayerState.PlayerRight)
+        {
+          
+            angle = - Mathf.Clamp(angle, 0, maxAngle);
+        }
 
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
         barrel.rotation = Quaternion.Slerp(barrel.rotation, targetRotation, Time.deltaTime * 5f);
