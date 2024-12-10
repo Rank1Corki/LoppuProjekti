@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TurnManager : MonoBehaviour
 {
@@ -14,12 +15,15 @@ public class TurnManager : MonoBehaviour
 
     public PlayerState currentState;
 
+    public TMP_Text turns;
+
     private CameraController camera;
     // Start is called before the first frame update
     void Start()
     {
-        commands = 4;
+        commands = 5;
         camera = GameObject.Find("Main Camera").GetComponent<CameraController>();
+        turns.text = $"Turns left: {commands}";
     }
 
     // Update is called once per frame
@@ -36,12 +40,14 @@ public class TurnManager : MonoBehaviour
                 if (tag == "Left")
                 {
                     commands--;
+                    turns.text = $"Turns left: {commands}";
                     if (commands == 0)
                     {
                         currentState = PlayerState.PlayerRight;
                         Debug.Log("Your turn is over");
                         commands = 5;
                         camera.MoveCamera(GameObject.Find("CameraTargetRight"));
+                        turns.text = $"Turns left: {commands}";
                         return true;
                     }
                     Debug.Log($"You have {commands} commands left");
@@ -54,12 +60,14 @@ public class TurnManager : MonoBehaviour
                 if (tag == "Right")
                 {
                     commands--;
+                    turns.text = $"Turns left: {commands}";
                     if (commands == 0)
                     {
                         currentState = PlayerState.PlayerLeft;
                         Debug.Log("Your turn is over");
-                        commands = 4;
+                        commands = 5;
                         camera.MoveCamera(GameObject.Find("CameraTargetLeft"));
+                        turns.text = $"Turns left: {commands}";
                         return true;
                     }
                     Debug.Log($"You have {commands} commands left");

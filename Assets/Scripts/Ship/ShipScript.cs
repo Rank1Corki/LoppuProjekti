@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShipScript : MonoBehaviour
 {
     [SerializeField] List<GameObject> ShipModules;
+    public int health;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,7 @@ public class ShipScript : MonoBehaviour
             if (child.GetComponent<ModuleInfo>() != null)
             {
                 ShipModules.Add(child.gameObject);
+                health += 10;
             }
             else
             {

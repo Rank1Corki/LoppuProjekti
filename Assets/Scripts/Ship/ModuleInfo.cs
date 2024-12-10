@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class ModuleInfo : MonoBehaviour
 {
-    public int hP = 100;
+    public int hP = 10;
     public Sprite destroyed;
     private Sprite intact;
     private SpriteRenderer spriteRenderer;
     bool repairTool = true;
     public Inventory inventory;
+    ShipScript shipScript;
+
+    bool isDestroyed = false;
 
     TurnManager turnManager;
     CursorManager cursorManager;
@@ -26,6 +29,8 @@ public class ModuleInfo : MonoBehaviour
        turnManager = tM.GetComponent<TurnManager>();
         cursorManager = tM.GetComponent<CursorManager>();
 
+        shipScript = GetComponentInParent<ShipScript>();
+
         Debug.Log(this.tag);
 
     }
@@ -33,9 +38,11 @@ public class ModuleInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hP <= 0)
+        if (hP <= 0 && !isDestroyed)
         {
+            shipScript.health -= 10;
             spriteRenderer.sprite = destroyed;
+            isDestroyed = true;
         }
 
 
@@ -48,9 +55,11 @@ public class ModuleInfo : MonoBehaviour
         {
             if (inventory.HasItem("Wood", 1) && turnManager.isMyTurn(this.tag))
             {
-                hP = 100;
+                hP = 10;
+                shipScript.health += 10;
                 spriteRenderer.sprite = intact;
                 inventory.RemoveItem("Wood", 1);
+                isDestroyed = false;
             }
             else
             {

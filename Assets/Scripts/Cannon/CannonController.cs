@@ -47,7 +47,7 @@ public class CannonController : MonoBehaviour
                 lineRenderer.enabled = false;
             }
 
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) && turnManager.isMyTurn(this.tag))
             {
                 ShootCannonball();
             }
@@ -109,7 +109,7 @@ public class CannonController : MonoBehaviour
             Vector2 direction = (tomouse).normalized;
             angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-            Debug.Log(angle);
+
             angle = Mathf.Clamp(angle, 0, maxAngle);
  
         }
@@ -120,7 +120,6 @@ public class CannonController : MonoBehaviour
             Vector2 direction = (tomouse).normalized;
             angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-            Debug.Log(angle);
             angle = - Mathf.Clamp(angle, 0, maxAngle);
       
         }
