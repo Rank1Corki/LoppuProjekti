@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class MinionPath : MonoBehaviour
 {
     [SerializeField] Transform destonation;
-    [SerializeField] Transform ladder;
-    [SerializeField] Transform ladderUpperPoint;
+    [SerializeField] Transform[] ladder = new Transform[3];
+    [SerializeField] Transform[] ladderUpperPoint = new Transform[3];
 
     [SerializeField] bool onLadder;
 
@@ -36,15 +36,16 @@ public class MinionPath : MonoBehaviour
         
         else if (onLadder & destonationFloor > currentFloor)
         {
-            agent.SetDestination(ladderUpperPoint.position);
+            agent.SetDestination(ladderUpperPoint[currentFloor].position);
         }
 
         //if it is on different floor then go to closest ladder
         else
         {
-            agent.SetDestination(ladder.position);
+            agent.SetDestination(ladder[currentFloor].position);
         }
-        float xDiff = Mathf.Abs(transform.position.x - ladder.position.x);
+        float xDiff = Mathf.Abs(transform.position.x - ladder[currentFloor].position.x);
+
         if (xDiff < 0.5)
         {
             onLadder = true;
@@ -53,21 +54,20 @@ public class MinionPath : MonoBehaviour
 
     void CheckFloor()
     {
-        //if the destonation is at least 0.2 above by agent's Y then destonation floor is above
-        if (destonation.position.y > transform.position.y + 0.2f)
-        {
-            destonationFloor = currentFloor + 1;
-        }
         //if the destonation is at least -0.5 below by agent's Y then destonation floor is below
-        else if (destonation.position.y < transform.position.y - 0.5f)
+        if (destonation.position.y < transform.position.y - 0.5f)
         {
             destonationFloor = currentFloor - 1;
         }
+        //if the destonation is at least 0.2 above by agent's Y then destonation floor is above
+        else if (destonation.position.y > transform.position.y + 0.2f)
+        {
+            destonationFloor = currentFloor + 1;
+        }
+        
         else
         {
             destonationFloor = currentFloor;
         }
     }
-
-   
 }
