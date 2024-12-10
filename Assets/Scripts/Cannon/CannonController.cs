@@ -100,21 +100,29 @@ public class CannonController : MonoBehaviour
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0f;
-        Vector2 direction = (mousePosition - barrel.position).normalized;
+        float angle = 0;
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        Debug.Log(angle);
 
         if (turnManager.currentState == TurnManager.PlayerState.PlayerLeft)
         {
-          
+            Vector2 tomouse = mousePosition - barrel.position;
+            Vector2 direction = (tomouse).normalized;
+            angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            Debug.Log(angle);
             angle = Mathf.Clamp(angle, 0, maxAngle);
+ 
         }
         else if (turnManager.currentState == TurnManager.PlayerState.PlayerRight)
         {
-          
+            Vector2 tomouse = mousePosition - barrel.position;
+            tomouse = new Vector2(tomouse.x + tomouse.x * -2, tomouse.y);
+            Vector2 direction = (tomouse).normalized;
+            angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            Debug.Log(angle);
             angle = - Mathf.Clamp(angle, 0, maxAngle);
+      
         }
 
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
@@ -128,7 +136,17 @@ public class CannonController : MonoBehaviour
 
         Vector2 startPoint = shootPoint.position;
 
-        Vector2 initialVelocity = shootPoint.right * projectileSpeed;
+        Vector2 initialVelocity = new Vector2();
+
+        if (turnManager.currentState == TurnManager.PlayerState.PlayerLeft)
+        {
+            initialVelocity = shootPoint.right * projectileSpeed;
+        }
+        else if (turnManager.currentState == TurnManager.PlayerState.PlayerRight)
+        {
+            initialVelocity = shootPoint.right * -projectileSpeed;
+        }
+   
 
 
         lineRenderer.positionCount = trajectorySteps;
