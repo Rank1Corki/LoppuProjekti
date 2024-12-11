@@ -8,7 +8,7 @@ public class ModuleInfo : MonoBehaviour
     public Sprite destroyed;
     private Sprite intact;
     private SpriteRenderer spriteRenderer;
-    bool repairTool = true;
+
     public Inventory inventory;
     ShipScript shipScript;
 
