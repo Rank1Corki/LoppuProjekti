@@ -377,7 +377,7 @@ MonoBehaviour:
     maxQuantity: 1
     isCannonball: 0
   - itemName: CannonBall
-    maxQuantity: 2
+    maxQuantity: 3
     isCannonball: 1
   - itemName: ShrapnelBall
     maxQuantity: 1
@@ -891,7 +891,7 @@ MonoBehaviour:
     maxQuantity: 1
     isCannonball: 0
   - itemName: CannonBall
-    maxQuantity: 2
+    maxQuantity: 3
     isCannonball: 1
   - itemName: ShrapnelBall
     maxQuantity: 1

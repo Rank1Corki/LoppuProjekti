@@ -18,12 +18,22 @@ public class TurnManager : MonoBehaviour
     public TMP_Text turns;
 
     private CameraController camera;
+
+    public GameObject leftCannon;
+    public GameObject rightCannon;
+
+    private ObjectSelector1 leftSel;
+    private ObjectSelector1 rightSel;
+
     // Start is called before the first frame update
     void Start()
     {
         commands = 5;
         camera = GameObject.Find("Main Camera").GetComponent<CameraController>();
         turns.text = $"Turns left: {commands}";
+
+        leftSel = leftCannon.GetComponent<ObjectSelector1>();
+        rightSel = rightCannon.GetComponent<ObjectSelector1>();
     }
 
     // Update is called once per frame
@@ -48,6 +58,7 @@ public class TurnManager : MonoBehaviour
                         commands = 5;
                         camera.MoveCamera(GameObject.Find("CameraTargetRight"));
                         turns.text = $"Turns left: {commands}";
+                        leftSel.Deselect();
                         return true;
                     }
                     Debug.Log($"You have {commands} commands left");
@@ -68,6 +79,7 @@ public class TurnManager : MonoBehaviour
                         commands = 5;
                         camera.MoveCamera(GameObject.Find("CameraTargetLeft"));
                         turns.text = $"Turns left: {commands}";
+                        rightSel.Deselect();
                         return true;
                     }
                     Debug.Log($"You have {commands} commands left");
