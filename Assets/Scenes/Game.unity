@@ -2001,6 +2001,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1441770252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 595014264720069619, guid: 0f01aa4e1d16bad4bbca6a655d6b3853, type: 3}
+  m_PrefabInstance: {fileID: 6446648794294635911}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1501093474 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6536654688423716922, guid: 8919f7eeefd1c244d820b968bc855279, type: 3}
@@ -2617,6 +2622,8 @@ MonoBehaviour:
   commands: 0
   currentState: 0
   turns: {fileID: 1293142229}
+  leftCannon: {fileID: 1441770252}
+  rightCannon: {fileID: 2107613669}
 --- !u!114 &1828550213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2859,6 +2866,11 @@ MonoBehaviour:
   scrollSpeed: 200
   minZoom: 1
   maxZoom: 20
+--- !u!1 &2107613669 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5710642533714288640, guid: 8919f7eeefd1c244d820b968bc855279, type: 3}
+  m_PrefabInstance: {fileID: 5576248709339016146}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5576248709339016146
 PrefabInstance:
   m_ObjectHideFlags: 0

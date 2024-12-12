@@ -8,6 +8,8 @@ public class Cannonball : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public int damage;
+
     void Start()
     {
         cannonballCollider = GetComponent<Collider2D>();
@@ -39,7 +41,7 @@ public class Cannonball : MonoBehaviour
 
 
 
-            partInfo.hP -= 10;
+            partInfo.hP -= damage;
         }
     }
 
