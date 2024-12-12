@@ -19,24 +19,28 @@ public class Cannonball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        // Check if the object colliding is a shrapnel piece and ignore collision
-        if (collision.gameObject.CompareTag("Shrapnel"))
-        {
-            return; // Don't destroy the shrapnel, just exit the method
-        }
-
-        rb.velocity = Vector2.zero;
-        rb.gravityScale = 0;
-        
-        animator.Play("Explosion");
-
-        // Destroy the cannonball on collision with any other object
-
-
         ModuleInfo partInfo = collision.gameObject.GetComponent<ModuleInfo>();
 
-        partInfo.hP -= 10;
+        if (partInfo.hP > 0)
+        {
+            // Check if the object colliding is a shrapnel piece and ignore collision
+            if (collision.gameObject.CompareTag("Shrapnel"))
+            {
+                return; // Don't destroy the shrapnel, just exit the method
+            }
+
+            rb.velocity = Vector2.zero;
+            rb.gravityScale = 0;
+
+            animator.Play("Explosion");
+
+            // Destroy the cannonball on collision with any other object
+
+
+
+
+            partInfo.hP -= 10;
+        }
     }
 
     private void DestroyBall()

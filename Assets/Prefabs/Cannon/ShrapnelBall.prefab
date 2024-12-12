@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 630132339212439999}
   - component: {fileID: 8978721964417905125}
   m_Layer: 0
-  m_Name: ShrapnellShot
+  m_Name: ShrapnelBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,9 +102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shrapnelPrefab: {fileID: 4830533505448112130, guid: 545b12929e48b174a9ef50a36c86de10, type: 3}
   shrapnelCount: 4
-  shrapnelForce: 10
+  shrapnelForce: 20
   explodeDelay: 1
-  spawnArea: {fileID: 8978721964417905125}
+  randomSpreadAmount: 0.1
 --- !u!50 &1797414544600146325
 Rigidbody2D:
   serializedVersion: 4
