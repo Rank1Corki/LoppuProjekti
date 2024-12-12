@@ -28,6 +28,7 @@ public class Barrel : MonoBehaviour
         new BarrelItem("Gold", 10, false)
     };
 
+
     public List<(string, int)> OpenBarrel()
     {
         List<(string, int)> itemsInBarrel = new List<(string, int)>();
