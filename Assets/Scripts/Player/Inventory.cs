@@ -13,6 +13,12 @@ public class Inventory : MonoBehaviour
     public List<InventoryItem> itemsList = new List<InventoryItem>();
     public Dictionary<string, int> items = new Dictionary<string, int>();
 
+    private void Start()
+    {
+        AddItem("Wood", 1);
+        AddItem("CannonBall", 1);
+        AddItem("ShrapnelBall", 1);
+    }
     private void UpdateItemsList()
     {
         itemsList.Clear();
